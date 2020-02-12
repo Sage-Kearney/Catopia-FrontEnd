@@ -1,0 +1,24 @@
+{
+  "name": "catopia-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sage-Kearney/Catopia-FrontEnd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sage-Kearney/Catopia-FrontEnd/issues"
+  },
+  "homepage": "https://github.com/Sage-Kearney/Catopia-FrontEnd#readme"
+}
