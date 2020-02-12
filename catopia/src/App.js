@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Link, Switch, Route } from "react-router-dom";
 import './App.css';
+import Home from './components/Home';
+import Show from './components/Show';
+import New from './components/New';
+import Edit from './components/Edit';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component () {
+  constructor() {
+    super();
+    this.state = {
+      cats: []
+    }
+  }
+
+  componentDidMount() {
+    const catsUrl = 'https://localhost:3000/cats'
+
+    fetch(catUrl)
+    .then(response => response.json())
+    .then(response => {
+      console.log(response);
+      this.setState({ cats: response })
+    });
+  }
+
+  render();
+  return;
 }
 
 export default App;
