@@ -44,28 +44,28 @@ class App extends Component {
     super(props);
     this.state = {
       cats: cats,
-      selectedCat:''
+      selectedCat: ''
     };
   }
 
   setCat = cat => {
-    this.setState({ selectedCat: cat })
-  }
+    this.setState({ selectedCat: cat });
+  };
 
   handleSubmit = evt => {
-    evt.preventDefault(); 
-  }
+    evt.preventDefault();
+  };
 
   handleChange = evt => {
     console.log(evt.target.id, evt.target.value);
     this.setState({ [evt.target.id]: evt.target.value });
-  }
+  };
 
   handleDelete = () => {
     // this.setState((prevState) => ({
     //   cats: prevState.cats.filter(cat => cat.id !== id)
     // }))
-  }
+  };
   // componentDidMount() {
   //   const catsUrl = 'https://localhost:4000/cats';
 
@@ -94,18 +94,30 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={() => <Home cats={this.state.cats} setCat={this.setCat}/>}
+              render={() => (
+                <Home cats={this.state.cats} setCat={this.setCat} />
+              )}
             />
-            <Route exact path='/:name' render={() =>{
-              return(
-                <Show selectedCat={this.state.selectedCat} />
-              )
-            }}/>
-            <Route exact path='/:name/edit' render={() => {
-              return(
-                <Edit selectedCat={this.state.selectedCat} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleDelete={this.handleDelete}/>
-              )
-            }}
+            <Route
+              exact
+              path="/:name"
+              render={() => {
+                return <Show selectedCat={this.state.selectedCat} />;
+              }}
+            />
+            <Route
+              exact
+              path="/:name/edit"
+              render={() => {
+                return (
+                  <Edit
+                    selectedCat={this.state.selectedCat}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                    handleDelete={this.handleDelete}
+                  />
+                );
+              }}
             />
           </Switch>
         </main>
