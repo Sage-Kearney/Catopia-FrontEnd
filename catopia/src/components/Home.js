@@ -11,7 +11,11 @@ function Home(props) {
           <div>
             <img src={cat.img}></img>
             <h1>{cat.name}</h1>
-            <Link to={`/${cat.name}`}>See More</Link>
+            <Link 
+            to={`/${cat.name}`}
+            onClick={() => props.setCat(cat)}
+            key={cat.name}
+            >See More</Link>
           </div>
         );
       })}

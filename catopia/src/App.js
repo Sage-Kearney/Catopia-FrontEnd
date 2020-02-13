@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import React, { Component } from 'react';
 import { Link, Switch, Route } from 'react-router-dom';
 import './App.css';
@@ -43,8 +43,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cats: cats
+      cats: cats,
+      selectedCat:''
     };
+  }
+
+  setCat = cat => {
+    this.setState({selectedCat: cat})
   }
 
   // componentDidMount() {
@@ -75,7 +80,18 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={() => <Home cats={this.state.cats} />}
+              render={() => <Home cats={this.state.cats} setCat={this.setCat}/>}
+            />
+            <Route exact path='/:name' render={() =>{
+              return(
+                <Show selectedCat={this.state.selectedCat} />
+              )
+            }}/>
+            <Route exact path='/:name/edit' render={() => {
+              return(
+                <Edit selectedCat={this.state.selectedCat}/>
+              )
+            }}
             />
           </Switch>
         </main>
