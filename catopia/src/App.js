@@ -49,9 +49,23 @@ class App extends Component {
   }
 
   setCat = cat => {
-    this.setState({selectedCat: cat})
+    this.setState({ selectedCat: cat })
   }
 
+  handleSubmit = evt => {
+    evt.preventDefault(); 
+  }
+
+  handleChange = evt => {
+    console.log(evt.target.id, evt.target.value);
+    this.setState({ [evt.target.id]: evt.target.value });
+  }
+
+  handleDelete = () => {
+    // this.setState((prevState) => ({
+    //   cats: prevState.cats.filter(cat => cat.id !== id)
+    // }))
+  }
   // componentDidMount() {
   //   const catsUrl = 'https://localhost:4000/cats';
 
@@ -89,7 +103,7 @@ class App extends Component {
             }}/>
             <Route exact path='/:name/edit' render={() => {
               return(
-                <Edit selectedCat={this.state.selectedCat}/>
+                <Edit selectedCat={this.state.selectedCat} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleDelete={this.handleDelete}/>
               )
             }}
             />
