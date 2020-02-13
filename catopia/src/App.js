@@ -10,8 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cats: [],
-      selectedCat: ''
+      cats: []
     };
   }
 
@@ -81,6 +80,7 @@ class App extends Component {
               render={() => {
                 return (
                   <Edit
+                    setCat={this.setCat}
                     selectedCat={this.state.selectedCat}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
@@ -95,8 +95,8 @@ class App extends Component {
               render={() => {
                 return (
                   <New
-                    handleChange={this.handleChange}
-                    handleSubmit={this.handleSubmit}
+                    // handleChange={this.handleChange}
+                    // handleSubmit={this.handleSubmit}
                   />
                 );
               }}
