@@ -28,11 +28,17 @@ class App extends Component {
     this.setState({ [evt.target.id]: evt.target.value });
   };
 
-  handleDelete = () => {
-    // this.setState((prevState) => ({
-    //   cats: prevState.cats.filter(cat => cat.id !== id)
-    // }))
-  };
+
+
+  
+  // handleDelete(id) {
+  //   const deletedCatUrl =``
+
+  //   console.log(id);
+  //   console.log(this.state.cats);
+  //   const catsArray = this.state.cats.filter( cat => cat.id !== id );
+  //   this.setState({ cats: catsArray });
+  // };
 
   componentDidMount() {
     const catsUrl = 'http://localhost:4000/cats';
