@@ -9,18 +9,26 @@ class Edit extends Component {
     };
   }
 
+  // // to go in handleDelete
+  // .then(this.props.history.push({ pathname: '/', state: { deleted: this.state.book._id } }))
+
   handleDelete() {
     const deletedCatUrl = `http://localhost:4000/cats/${this.props.selectedCat._id}`;
 
     fetch(deletedCatUrl, {
-        method: 'DELETE'
+      method: 'DELETE'
     })
-    .then(() => {
-        // this.setState({ isDeleted: true });
-        this.props.history.replace('/noroute')
-        this.props.history.replace('/')
-    })
-    .catch(console.error);
+      .then(
+        this.props.history.push({
+          pathname: '/',
+          state: { deleted: this.props.selectedCat._id }
+        })
+      )
+      .then(function refreshPage() {
+        window.location.reload(false);
+      })
+      .catch(console.error);
+    console.log(this.props.history);
   }
 
   render() {
@@ -52,16 +60,11 @@ class Edit extends Component {
             onChange={this.props.handleChange}
           ></input>
           <button type="submit">Submit</button>
-          <button
-            onClick={() => this.handleDelete()}
-          >
-            Delete
-          </button>
+          <button onClick={() => this.handleDelete()}>Delete</button>
         </form>
       </div>
     );
   }
 }
-
 
 export default withRouter(Edit);

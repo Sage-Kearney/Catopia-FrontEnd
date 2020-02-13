@@ -28,9 +28,6 @@ class App extends Component {
     this.setState({ [evt.target.id]: evt.target.value });
   };
 
-
-
-  
   // handleDelete(id) {
   //   const deletedCatUrl =``
 
@@ -87,11 +84,24 @@ class App extends Component {
                     selectedCat={this.state.selectedCat}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
-                    handleDelete={this.handleDelete}
+                    // handleDelete={this.handleDelete}
                   />
                 );
               }}
             />
+            <Route
+              exact
+              path="/Add/Cat"
+              render={() => {
+                return (
+                  <New
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                  />
+                );
+              }}
+            />
+            ;
           </Switch>
         </main>
       </div>
